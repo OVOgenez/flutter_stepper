@@ -404,8 +404,14 @@ class _FAStepperState extends State<FAStepper> with TickerProviderStateMixin {
 
   Widget _buildVerticalControls() {
     if (widget.controlsBuilder != null)
-      return widget.controlsBuilder!(context,
-          onStepContinue: widget.onStepContinue, onStepCancel: widget.onStepCancel);
+      return widget.controlsBuilder!(
+          context,
+          ControlsDetails(
+            currentStep: widget.currentStep,
+            stepIndex: widget.currentStep, // Might blow out in the future
+            onStepContinue: widget.onStepContinue,
+            onStepCancel: widget.onStepCancel,
+          ));
 
     Color? cancelColor;
 
