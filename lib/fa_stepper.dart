@@ -699,6 +699,7 @@ class _FAStepperState extends State<FAStepper> with TickerProviderStateMixin {
             // Expanded(
             child: ListView.builder(
                 shrinkWrap: true,
+                physics: widget.physics,
                 scrollDirection: Axis.horizontal,
                 itemCount: children.length,
                 itemBuilder: (BuildContext context, int index) => children[index])),
